@@ -1,28 +1,25 @@
 from datetime import datetime
-from entities import OrderItem
 
 class Order:
 
     def __init__(self):
         self.__moment = datetime.now()
-        self.__orders = []
+        self.__items = []
 
-    @property
-    def moment(self):
-        return self.__moment
+    def get_moment(self):
+        return '{}/{}/{} {}:{}'.format(self.__moment.day, self.__moment.month, self.__moment.year, self.__moment.hour, self.__moment.minute)
+
+    def get_items(self):
+        return self.__items
 
     def add_item(self, item):
-        self.orders.append(item)
+        self.__items.append(item)
 
     def remove_item(self, item):
-        self.orders.remove(item)
-
-    @property
-    def orders(self):
-        return self.__orders
+        self.__items.remove(item)
 
     def total(self):
-        soma = 0
-        for item in orders:
-            soma += item.sub_total()
-        return soma
+        sum = 0
+        for item in self.__items:
+            sum += item.sub_total()
+        return sum

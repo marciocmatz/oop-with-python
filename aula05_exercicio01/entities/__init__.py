@@ -1,4 +1,4 @@
+from .order import Order
+from .ordem_item import OrderItem
 from .product import Product
 from .client import Client
-from .order_item import OrderItem
-from .order import Order
